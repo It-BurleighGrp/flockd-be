@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  inventory-db:
+      image: postgres:13
+      ports:
+        - 5434:5432
+      environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: itburleighgrp2023
+        POSTGRES_DB: inventory
+      networks:
+        - burleighgrp
+networks:
+  burleighgrp:
+      
