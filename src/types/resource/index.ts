@@ -1,7 +1,7 @@
 import {IsNotEmpty, IsString} from 'class-validator'
 
 
-export class ResourceDto {
+export class Resource {
     @IsString()
     @IsNotEmpty()
     name: string
@@ -21,18 +21,22 @@ export class ResourceDto {
     @IsString()
     @IsNotEmpty()
     photo: string
-    
-    @IsString()
-    @IsNotEmpty()
-    qrCode: string
-    
+
     @IsString()
     @IsNotEmpty()
     responsible: string
+
+    @IsString()
+    others: string
+
+    @IsString()
+    @IsNotEmpty()
+    status: string
     
     @IsString()
     localization: string
  
     @IsString()
     price: string
+
 }

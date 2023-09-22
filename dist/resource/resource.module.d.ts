@@ -1,2 +1,2 @@
-export declare class Resource {
+export declare class ResourceModule {
 }

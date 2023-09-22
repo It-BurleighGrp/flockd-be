@@ -9,48 +9,56 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AuthDto = void 0;
+exports.Resource = void 0;
 const class_validator_1 = require("class-validator");
-class AuthDto {
+class Resource {
 }
-exports.AuthDto = AuthDto;
+exports.Resource = Resource;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "name", void 0);
+], Resource.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "model", void 0);
+], Resource.prototype, "model", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "type", void 0);
+], Resource.prototype, "type", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "serial", void 0);
+], Resource.prototype, "serial", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "photo", void 0);
+], Resource.prototype, "photo", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "qrCode", void 0);
+], Resource.prototype, "responsible", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], Resource.prototype, "others", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "responsible", void 0);
+], Resource.prototype, "status", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     __metadata("design:type", String)
-], AuthDto.prototype, "localization", void 0);
+], Resource.prototype, "localization", void 0);
+__decorate([
+    (0, class_validator_1.IsString)(),
+    __metadata("design:type", String)
+], Resource.prototype, "price", void 0);
 //# sourceMappingURL=index.js.map
