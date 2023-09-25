@@ -20,9 +20,5 @@ model Resource {
   localization String?
   price        String?
   others       String?
-  status       String
-
-
-
-  
+  status       String?
 }

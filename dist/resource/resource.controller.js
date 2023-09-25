@@ -20,27 +20,57 @@ let ResourceController = class ResourceController {
     constructor(resource) {
         this.resource = resource;
     }
-    sendData(dto) {
-        return this.resource.sendData(dto);
+    createResource(dto) {
+        return this.resource.createResource(dto);
     }
-    getData() {
-        return this.resource.getData();
+    getResource() {
+        return this.resource.getResource();
+    }
+    getResourceById(id) {
+        return this.resource.getResourceById(id);
+    }
+    updateResource(id, dto) {
+        return this.updateResource(id, dto);
+    }
+    deleteResource(id) {
+        return this.deleteResource(id);
     }
 };
 exports.ResourceController = ResourceController;
 __decorate([
-    (0, common_1.Post)('send'),
+    (0, common_1.Post)('resource/create'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [types_1.Resource]),
     __metadata("design:returntype", void 0)
-], ResourceController.prototype, "sendData", null);
+], ResourceController.prototype, "createResource", null);
 __decorate([
-    (0, common_1.Get)('items'),
+    (0, common_1.Get)('resource/items'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], ResourceController.prototype, "getData", null);
+], ResourceController.prototype, "getResource", null);
+__decorate([
+    (0, common_1.Get)('resource/'),
+    __param(0, (0, common_1.Query)('id')),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", Promise)
+], ResourceController.prototype, "getResourceById", null);
+__decorate([
+    (0, common_1.Put)('resource/:id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String, types_1.Resource]),
+    __metadata("design:returntype", void 0)
+], ResourceController.prototype, "updateResource", null);
+__decorate([
+    (0, common_1.Delete)('resource/delete'),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [String]),
+    __metadata("design:returntype", void 0)
+], ResourceController.prototype, "deleteResource", null);
 exports.ResourceController = ResourceController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [resource_service_1.ResourceService])

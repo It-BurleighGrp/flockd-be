@@ -30,7 +30,6 @@ export class Resource {
     others: string
 
     @IsString()
-    @IsNotEmpty()
     status: string
     
     @IsString()

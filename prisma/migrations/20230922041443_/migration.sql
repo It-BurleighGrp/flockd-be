@@ -8,4 +8,4 @@
 -- AlterTable
 ALTER TABLE "Resource" DROP COLUMN "qrCode",
 ADD COLUMN     "others" TEXT,
-ADD COLUMN     "status" TEXT NOT NULL;
+ADD COLUMN     "status" TEXT;

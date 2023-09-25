@@ -3,10 +3,10 @@ import { ResourceService } from "./resource.service";
 export declare class ResourceController {
     private resource;
     constructor(resource: ResourceService);
-    sendData(dto: Resource): Promise<{
+    createResource(dto: Resource): Promise<{
         message: string;
     }>;
-    getData(): Promise<{
+    getResource(): Promise<{
         id: number;
         createdAt: Date;
         updatedAt: Date;
@@ -21,4 +21,7 @@ export declare class ResourceController {
         others: string;
         status: string;
     }[]>;
+    getResourceById(id: string): Promise<Resource>;
+    updateResource(id: string, dto: Resource): any;
+    deleteResource(id: string): any;
 }

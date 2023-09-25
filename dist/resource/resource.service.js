@@ -19,7 +19,7 @@ let ResourceService = class ResourceService {
         this.prisma = prisma;
         this.config = config;
     }
-    async sendData(dto) {
+    async createResource(dto) {
         try {
             await this.prisma.resource.create({
                 data: {
@@ -46,7 +46,7 @@ let ResourceService = class ResourceService {
             throw new Error(error);
         }
     }
-    async getData() {
+    async getResource() {
         try {
             const resource = await this.prisma.resource.findMany();
             return resource;
@@ -56,6 +56,58 @@ let ResourceService = class ResourceService {
                 throw new common_1.HttpException('Not Found', common_1.HttpStatus.NOT_FOUND);
             }
             throw new Error(error);
+        }
+    }
+    async getResourceById(id) {
+        try {
+            const resource = await this.prisma.resource.findUnique({ where: { id: Number(id) } });
+            if (Object.keys(resource).length > 0) {
+                return resource;
+            }
+            else {
+                throw new common_1.HttpException('Not Found', common_1.HttpStatus.NOT_FOUND);
+            }
+        }
+        catch (error) {
+            throw new common_1.HttpException('Internal Server Error', common_1.HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    async updateResource(id, dto) {
+        const { localization, model, name, others, photo, price, responsible, serial, status, type } = dto;
+        console.log('bateu antes');
+        try {
+            const currentData = await this.prisma.resource.findUnique({
+                where: { id: Number(id) }
+            });
+            console.log('bateu aqui>>>', currentData);
+            const resource = await this.prisma.resource.update({
+                where: { id: Number(id) },
+                data: {
+                    id: Number(id),
+                    localization,
+                    model,
+                    name,
+                    others,
+                    photo,
+                    price,
+                    responsible,
+                    serial,
+                    status,
+                    type
+                }
+            });
+            return resource;
+        }
+        catch (error) {
+            throw new common_1.HttpException('Not Acceptable', common_1.HttpStatus.NOT_ACCEPTABLE);
+        }
+    }
+    async deleteResource(id) {
+        try {
+            return this.prisma.resource.delete({ where: { id: Number(id) } });
+        }
+        catch (error) {
+            throw new common_1.HttpException('Not Acceptable', common_1.HttpStatus.NOT_ACCEPTABLE);
         }
     }
 };

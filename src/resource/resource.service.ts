@@ -2,13 +2,14 @@ import {Req, Res, Injectable, ForbiddenException, HttpException, HttpStatus } fr
 import { ConfigService } from "@nestjs/config";
 import { PrismaService } from "src/prisma/prisma.service";
 import {Resource} from '../types'
-import { PrismaClientKnownRequestError, PrismaClientValidationError } from "@prisma/client/runtime/library";
+import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 
 @Injectable({})
 export class ResourceService{
     constructor(private prisma: PrismaService, private config: ConfigService){}
-    async sendData(dto: Resource){
+
+    async createResource(dto: Resource){
         try{
             await this.prisma.resource.create({
                 data:{
@@ -36,7 +37,7 @@ export class ResourceService{
         
     }
 
-    async getData(){
+    async getResource(){
         try{
              const resource = await this.prisma.resource.findMany()
              return resource
@@ -47,5 +48,57 @@ export class ResourceService{
             throw new Error(error)
         }
         
+    }
+    async getResourceById(id: string){
+        try{
+            const resource = await this.prisma.resource.findUnique({ where: { id: Number(id) } })
+            if(Object.keys(resource).length > 0) {
+                return resource
+            } else{
+                throw new HttpException('Not Found', HttpStatus.NOT_FOUND)
+            }
+        } catch(error){
+            throw new HttpException('Internal Server Error', HttpStatus.INTERNAL_SERVER_ERROR)
+        }
+    }
+
+    async updateResource(id: string, dto: Resource){
+
+        const {localization, model, name, others, photo, price, responsible, serial, status, type} = dto
+        console.log('bateu antes')
+        try{
+            const currentData = await this.prisma.resource.findUnique({
+                where:{id: Number(id)}
+            })
+            console.log('bateu aqui>>>', currentData)
+
+            const resource = await this.prisma.resource.update({
+                where:{ id: Number(id)},
+                data:{
+                    id: Number(id),
+                    localization,
+                    model,
+                    name,
+                    others,
+                    photo,
+                    price, 
+                    responsible,
+                    serial,
+                    status, 
+                    type
+                }
+            })
+            return resource
+        } catch (error){
+            throw new HttpException('Not Acceptable', HttpStatus.NOT_ACCEPTABLE)
+        }
+    }
+
+    async deleteResource(id: string){
+        try{
+            return this.prisma.resource.delete({where:{id: Number(id)}})
+        } catch(error){
+            throw new HttpException('Not Acceptable', HttpStatus.NOT_ACCEPTABLE)
+        }
     }
 }
