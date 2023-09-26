@@ -16,6 +16,7 @@ exports.ResourceController = void 0;
 const common_1 = require("@nestjs/common");
 const types_1 = require("../types");
 const resource_service_1 = require("./resource.service");
+const swagger_1 = require("@nestjs/swagger");
 let ResourceController = class ResourceController {
     constructor(resource) {
         this.resource = resource;
@@ -30,35 +31,47 @@ let ResourceController = class ResourceController {
         return this.resource.getResourceById(id);
     }
     updateResource(id, dto) {
-        return this.updateResource(id, dto);
+        return this.resource.updateResource(id, dto);
     }
     deleteResource(id) {
-        return this.deleteResource(id);
+        return this.resource.deleteResource(id);
     }
 };
 exports.ResourceController = ResourceController;
 __decorate([
-    (0, common_1.Post)('resource/create'),
+    (0, swagger_1.ApiOperation)({ summary: 'Create new Resource' }),
+    (0, swagger_1.ApiResponse)({ status: 201, description: 'Resource created successfully' }),
+    (0, swagger_1.ApiResponse)({ status: 406, description: 'Not Acceptable' }),
+    (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [types_1.Resource]),
     __metadata("design:returntype", void 0)
 ], ResourceController.prototype, "createResource", null);
 __decorate([
-    (0, common_1.Get)('resource/items'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get all resource instances' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'All instances of resources' }),
+    (0, swagger_1.ApiResponse)({ status: 400, description: 'Not Acceptable' }),
+    (0, common_1.Get)('items'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], ResourceController.prototype, "getResource", null);
 __decorate([
-    (0, common_1.Get)('resource/'),
+    (0, swagger_1.ApiOperation)({ summary: 'Get one specific resource instance' }),
+    (0, swagger_1.ApiResponse)({ status: 202, description: 'Return specific resource' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Not Found' }),
+    (0, common_1.Get)('item'),
     __param(0, (0, common_1.Query)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", Promise)
 ], ResourceController.prototype, "getResourceById", null);
 __decorate([
-    (0, common_1.Put)('resource/:id'),
+    (0, swagger_1.ApiOperation)({ summary: 'Update one specific resource instance' }),
+    (0, swagger_1.ApiResponse)({ status: 202, description: 'Accepted' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Not Found' }),
+    (0, common_1.Put)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
@@ -66,13 +79,18 @@ __decorate([
     __metadata("design:returntype", void 0)
 ], ResourceController.prototype, "updateResource", null);
 __decorate([
-    (0, common_1.Delete)('resource/delete'),
+    (0, swagger_1.ApiOperation)({ summary: 'Delete a specific resource instance' }),
+    (0, swagger_1.ApiResponse)({ status: 200, description: 'Resource Deleted' }),
+    (0, swagger_1.ApiResponse)({ status: 404, description: 'Not Found' }),
+    (0, common_1.Delete)('delete'),
+    __param(0, (0, common_1.Query)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], ResourceController.prototype, "deleteResource", null);
 exports.ResourceController = ResourceController = __decorate([
-    (0, common_1.Controller)(),
+    (0, swagger_1.ApiTags)('Resource'),
+    (0, common_1.Controller)('resource'),
     __metadata("design:paramtypes", [resource_service_1.ResourceService])
 ], ResourceController);
 //# sourceMappingURL=resource.controller.js.map

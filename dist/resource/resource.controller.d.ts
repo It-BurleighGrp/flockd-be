@@ -6,7 +6,9 @@ export declare class ResourceController {
     createResource(dto: Resource): Promise<{
         message: string;
     }>;
-    getResource(): Promise<{
+    getResource(): Promise<Resource[]>;
+    getResourceById(id: string): Promise<Resource>;
+    updateResource(id: string, dto: Resource): Promise<{
         id: number;
         createdAt: Date;
         updatedAt: Date;
@@ -20,8 +22,20 @@ export declare class ResourceController {
         price: string;
         others: string;
         status: string;
-    }[]>;
-    getResourceById(id: string): Promise<Resource>;
-    updateResource(id: string, dto: Resource): any;
-    deleteResource(id: string): any;
+    }>;
+    deleteResource(id: string): Promise<{
+        id: number;
+        createdAt: Date;
+        updatedAt: Date;
+        name: string;
+        model: string;
+        type: string;
+        serial: string;
+        photo: string;
+        responsible: string;
+        localization: string;
+        price: string;
+        others: string;
+        status: string;
+    }>;
 }

@@ -22,3 +22,14 @@ model Resource {
   others       String?
   status       String?
 }
+
+model User {
+  id Int @id @default(autoincrement())
+  name String @unique
+  birthDate String
+  password String
+  email String
+  phone String
+  role String
+  photo String?
+}

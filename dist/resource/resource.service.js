@@ -11,13 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResourceService = void 0;
 const common_1 = require("@nestjs/common");
-const config_1 = require("@nestjs/config");
 const prisma_service_1 = require("../prisma/prisma.service");
 const library_1 = require("@prisma/client/runtime/library");
 let ResourceService = class ResourceService {
-    constructor(prisma, config) {
+    constructor(prisma) {
         this.prisma = prisma;
-        this.config = config;
     }
     async createResource(dto) {
         try {
@@ -48,7 +46,9 @@ let ResourceService = class ResourceService {
     }
     async getResource() {
         try {
-            const resource = await this.prisma.resource.findMany();
+            const resource = await this.prisma.resource.findMany({
+                orderBy: { id: "asc" }
+            });
             return resource;
         }
         catch (error) {
@@ -62,6 +62,7 @@ let ResourceService = class ResourceService {
         try {
             const resource = await this.prisma.resource.findUnique({ where: { id: Number(id) } });
             if (Object.keys(resource).length > 0) {
+                console.log('this is our resource', resource);
                 return resource;
             }
             else {
@@ -74,16 +75,12 @@ let ResourceService = class ResourceService {
     }
     async updateResource(id, dto) {
         const { localization, model, name, others, photo, price, responsible, serial, status, type } = dto;
-        console.log('bateu antes');
         try {
-            const currentData = await this.prisma.resource.findUnique({
-                where: { id: Number(id) }
-            });
-            console.log('bateu aqui>>>', currentData);
             const resource = await this.prisma.resource.update({
                 where: { id: Number(id) },
                 data: {
                     id: Number(id),
+                    updatedAt: new Date(),
                     localization,
                     model,
                     name,
@@ -104,16 +101,21 @@ let ResourceService = class ResourceService {
     }
     async deleteResource(id) {
         try {
-            return this.prisma.resource.delete({ where: { id: Number(id) } });
+            const resource = await this.prisma.resource.delete({
+                where: {
+                    id: Number(id)
+                }
+            });
+            return resource;
         }
         catch (error) {
-            throw new common_1.HttpException('Not Acceptable', common_1.HttpStatus.NOT_ACCEPTABLE);
+            throw new common_1.HttpException('Not Found', common_1.HttpStatus.NOT_FOUND);
         }
     }
 };
 exports.ResourceService = ResourceService;
 exports.ResourceService = ResourceService = __decorate([
     (0, common_1.Injectable)({}),
-    __metadata("design:paramtypes", [prisma_service_1.PrismaService, config_1.ConfigService])
+    __metadata("design:paramtypes", [prisma_service_1.PrismaService])
 ], ResourceService);
 //# sourceMappingURL=resource.service.js.map

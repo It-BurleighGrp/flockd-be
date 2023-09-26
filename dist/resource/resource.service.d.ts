@@ -1,10 +1,8 @@
-import { ConfigService } from "@nestjs/config";
 import { PrismaService } from "src/prisma/prisma.service";
 import { Resource } from '../types';
 export declare class ResourceService {
     private prisma;
-    private config;
-    constructor(prisma: PrismaService, config: ConfigService);
+    constructor(prisma: PrismaService);
     createResource(dto: Resource): Promise<{
         message: string;
     }>;
