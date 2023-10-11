@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Put, Delete,  } from '@nestjs/common';
 import { UserService } from './user.service';
 import { ApiTags, ApiOperation, ApiResponse } from '@nestjs/swagger';
 
@@ -16,7 +16,7 @@ export class UserController {
     @ApiOperation({summary: 'Get infos of a unique user'})
     @ApiResponse({ status:201, description: 'Resource created successfully'})
     @ApiResponse({ status:406, description: 'Not Acceptable'})
-    @Get()
+    @Get("/me")
     getUser(){
         return this.user.getUser()
     }

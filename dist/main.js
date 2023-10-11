@@ -4,10 +4,10 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 const swagger_1 = require("@nestjs/swagger");
 async function bootstrap() {
-    const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const app = await core_1.NestFactory.create(app_module_1.AppModule, { cors: false });
     const config = new swagger_1.DocumentBuilder()
-        .setTitle('Flockd Inventory')
-        .setDescription('Inventory API for Flockd')
+        .setTitle('Flockd Backend')
+        .setDescription('Flockd APIs for intranet')
         .setVersion('0.1')
         .build();
     const document = swagger_1.SwaggerModule.createDocument(app, config);

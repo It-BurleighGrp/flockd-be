@@ -44,7 +44,7 @@ __decorate([
     (0, swagger_1.ApiOperation)({ summary: 'Get infos of a unique user' }),
     (0, swagger_1.ApiResponse)({ status: 201, description: 'Resource created successfully' }),
     (0, swagger_1.ApiResponse)({ status: 406, description: 'Not Acceptable' }),
-    (0, common_1.Get)(),
+    (0, common_1.Get)("/me"),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)

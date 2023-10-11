@@ -9,51 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.User = void 0;
+exports.Stock = void 0;
 const class_validator_1 = require("class-validator");
 const swagger_1 = require("@nestjs/swagger");
-class User {
+class Stock {
 }
-exports.User = User;
+exports.Stock = Stock;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], User.prototype, "name", void 0);
+], Stock.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
-], User.prototype, "birthDate", void 0);
+], Stock.prototype, "type", void 0);
 __decorate([
-    (0, class_validator_1.IsString)(),
+    (0, class_validator_1.IsNumber)(),
     (0, class_validator_1.IsNotEmpty)(),
     (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
-], User.prototype, "password", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
-], User.prototype, "email", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
-], User.prototype, "phone", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, class_validator_1.IsNotEmpty)(),
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
-], User.prototype, "role", void 0);
-__decorate([
-    (0, class_validator_1.IsString)(),
-    (0, swagger_1.ApiProperty)(),
-    __metadata("design:type", String)
-], User.prototype, "photo", void 0);
+    __metadata("design:type", Number)
+], Stock.prototype, "quantity", void 0);
 //# sourceMappingURL=index.js.map

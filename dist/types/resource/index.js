@@ -11,53 +11,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Resource = void 0;
 const class_validator_1 = require("class-validator");
+const swagger_1 = require("@nestjs/swagger");
 class Resource {
 }
 exports.Resource = Resource;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "name", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "model", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "type", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "serial", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "photo", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "responsible", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "others", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "status", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "localization", void 0);
 __decorate([
     (0, class_validator_1.IsString)(),
+    (0, swagger_1.ApiProperty)(),
     __metadata("design:type", String)
 ], Resource.prototype, "price", void 0);
 //# sourceMappingURL=index.js.map

@@ -3,6 +3,8 @@ import { ConfigModule } from '@nestjs/config';
 import { PrismaModule } from './prisma/prisma.module';
 import { ResourceModule } from './resource/resource.module';
 import { UserModule } from './user/user.module';
+import { StockService } from './stock/stock.service';
+import { StockModule } from './stock/stock.module';
 
 
 @Module({
@@ -13,9 +15,10 @@ import { UserModule } from './user/user.module';
     PrismaModule,
     ResourceModule,
     UserModule,
+    StockModule,
 ],
   controllers: [],
-  providers: [],
+  providers: [StockService],
 })
 
 

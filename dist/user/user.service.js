@@ -21,6 +21,10 @@ let UserService = class UserService {
     }
     async getUser() {
         console.log('Get User');
+        return {
+            "status": "200",
+            "message": "Get User!"
+        };
     }
     async updateUser() {
         console.log('Update User');
