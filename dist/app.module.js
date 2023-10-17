@@ -14,6 +14,7 @@ const resource_module_1 = require("./resource/resource.module");
 const user_module_1 = require("./user/user.module");
 const stock_service_1 = require("./stock/stock.service");
 const stock_module_1 = require("./stock/stock.module");
+const auth_module_1 = require("./auth/auth.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -27,6 +28,7 @@ exports.AppModule = AppModule = __decorate([
             resource_module_1.ResourceModule,
             user_module_1.UserModule,
             stock_module_1.StockModule,
+            auth_module_1.AuthModule,
         ],
         controllers: [],
         providers: [stock_service_1.StockService],

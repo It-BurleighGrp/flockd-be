@@ -1,6 +1,6 @@
 import { Controller, Post, Get, Delete, Put, Body } from '@nestjs/common';
 import {StockService} from './stock.service'
-import {Stock} from '../types'
+import {Stock} from '../interfaces'
 import {ApiResponse, ApiOperation, ApiTags, ApiProperty} from '@nestjs/swagger'
 
 @ApiTags('Stock')

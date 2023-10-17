@@ -5,7 +5,7 @@ import { ResourceModule } from './resource/resource.module';
 import { UserModule } from './user/user.module';
 import { StockService } from './stock/stock.service';
 import { StockModule } from './stock/stock.module';
-
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -16,6 +16,7 @@ import { StockModule } from './stock/stock.module';
     ResourceModule,
     UserModule,
     StockModule,
+    AuthModule,
 ],
   controllers: [],
   providers: [StockService],

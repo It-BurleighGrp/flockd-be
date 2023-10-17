@@ -14,7 +14,7 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.ResourceController = void 0;
 const common_1 = require("@nestjs/common");
-const types_1 = require("../types");
+const interfaces_1 = require("../interfaces");
 const resource_service_1 = require("./resource.service");
 const swagger_1 = require("@nestjs/swagger");
 let ResourceController = class ResourceController {
@@ -45,7 +45,7 @@ __decorate([
     (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [types_1.Resource]),
+    __metadata("design:paramtypes", [interfaces_1.Resource]),
     __metadata("design:returntype", void 0)
 ], ResourceController.prototype, "createResource", null);
 __decorate([
@@ -75,7 +75,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, types_1.Resource]),
+    __metadata("design:paramtypes", [String, interfaces_1.Resource]),
     __metadata("design:returntype", void 0)
 ], ResourceController.prototype, "updateResource", null);
 __decorate([

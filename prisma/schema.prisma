@@ -23,15 +23,19 @@ model Resource {
   status       String?
 }
 
-model User {
+model Users {
   id Int @id @default(autoincrement())
-  name String @unique
-  birthDate String
-  password String
-  email String
-  phone String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name String? @unique
+  birthDate String?
+  hash String
+  email String @unique
+  phone String?
   role String
   photo String?
+
+  @@map("users")
 }
 
 model Stock {

@@ -1,6 +1,6 @@
 import { Injectable, HttpException, HttpStatus } from "@nestjs/common";
 import { PrismaService } from "src/prisma/prisma.service";
-import {Resource} from '../types'
+import {Resource} from '../interfaces'
 import { PrismaClientValidationError } from "@prisma/client/runtime/library";
 
 

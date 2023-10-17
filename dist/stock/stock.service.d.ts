@@ -1,5 +1,5 @@
 import { PrismaService } from 'src/prisma/prisma.service';
-import { Stock } from 'src/types';
+import { Stock } from 'src/interfaces';
 export declare class StockService {
     private prisma;
     constructor(prisma: PrismaService);

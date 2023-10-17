@@ -1,5 +1,5 @@
 import { PrismaService } from "src/prisma/prisma.service";
-import { Resource } from '../types';
+import { Resource } from '../interfaces';
 export declare class ResourceService {
     private prisma;
     constructor(prisma: PrismaService);

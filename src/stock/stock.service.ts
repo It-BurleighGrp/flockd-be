@@ -1,7 +1,7 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { PrismaClientValidationError } from '@prisma/client/runtime/library';
 import { PrismaService } from 'src/prisma/prisma.service';
-import {Stock} from 'src/types'
+import {Stock} from 'src/interfaces'
 
 @Injectable({})
 export class StockService {
@@ -35,6 +35,8 @@ export class StockService {
             throw new Error(error)
         }
     }
+
+    
     async updateStockResource(){}
 
 

@@ -15,7 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.StockController = void 0;
 const common_1 = require("@nestjs/common");
 const stock_service_1 = require("./stock.service");
-const types_1 = require("../types");
+const interfaces_1 = require("../interfaces");
 const swagger_1 = require("@nestjs/swagger");
 let StockController = class StockController {
     constructor(stock) {
@@ -42,7 +42,7 @@ __decorate([
     (0, common_1.Post)('create'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [types_1.Stock]),
+    __metadata("design:paramtypes", [interfaces_1.Stock]),
     __metadata("design:returntype", void 0)
 ], StockController.prototype, "createStockResource", null);
 __decorate([
@@ -55,7 +55,7 @@ __decorate([
     (0, common_1.Put)('updateResource'),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [types_1.Stock]),
+    __metadata("design:paramtypes", [interfaces_1.Stock]),
     __metadata("design:returntype", void 0)
 ], StockController.prototype, "updateStockResource", null);
 __decorate([

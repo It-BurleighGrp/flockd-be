@@ -1,5 +1,5 @@
 import { StockService } from './stock.service';
-import { Stock } from '../types';
+import { Stock } from '../interfaces';
 export declare class StockController {
     private stock;
     constructor(stock: StockService);

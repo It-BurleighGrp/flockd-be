@@ -1,4 +1,4 @@
-import { Resource } from '../types';
+import { Resource } from '../interfaces';
 import { ResourceService } from "./resource.service";
 export declare class ResourceController {
     private resource;
