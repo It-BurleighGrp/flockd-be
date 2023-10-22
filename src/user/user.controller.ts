@@ -39,6 +39,7 @@ export class UserController {
     @ApiOperation({summary: 'Delete user info'})
     @ApiResponse({ status:201, description: 'Resource created successfully'})
     @ApiResponse({ status:406, description: 'Not Acceptable'})
+    
     @Delete('delete')
     deleteUser(){
         return this.user.deleteUser()
